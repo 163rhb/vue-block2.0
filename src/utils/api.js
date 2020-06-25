@@ -47,7 +47,7 @@ axios.interceptors.response.use(success=>{
 })
 
 let base='';
-export const postKeyValueRequst=(url,params)=>{
+export const postKeyValueRequest=(url,params)=>{
     return axios({
         method:'post',
         url:`${base}${url}`,/*注意格式*/
@@ -70,21 +70,21 @@ export const postKeyValueRequst=(url,params)=>{
 
     })
 }
-export const postRequst=(url,params)=>{
+export const postRequest=(url,params)=>{
     return axios({
         method:'post',
         url:`${base}${url}`,
         data:params,
     })
 }
-export const putRequst=(url,params)=>{
+export const putRequest=(url,params)=>{
     return axios({
         method:'put',
         url:`${base}${url}`,
         data:params,
     })
 }
-export const getRequst=(url,params)=>{
+export const getRequest=(url,params)=>{
     return axios({
         method:'get',
         url:`${base}${url}`,
@@ -93,7 +93,7 @@ export const getRequst=(url,params)=>{
 
     })
 }
-export const deleteRequst=(url,params)=>{
+export const deleteRequest=(url,params)=>{
     return axios({
         method:'delete',
         url:`${base}${url}`,
@@ -101,6 +101,25 @@ export const deleteRequst=(url,params)=>{
 
 
     })
+}
+export const uploadFileRequest = (url, params) => {
+    return axios({
+        method: 'post',
+        url: `${base}${url}`,
+        data: params,
+        headers: {
+            'Content-Type': 'multipart/form-data'
+        }
+    });
+}
+export const isNotNullORBlank = (...args)=> {
+    for (var i = 0; i < args.length; i++) {
+        var argument = args[i];
+        if (argument == null || argument == '' || argument == undefined) {
+            return false;
+        }
+    }
+    return true;
 }
 
 

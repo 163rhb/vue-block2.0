@@ -26,7 +26,7 @@
                 }
             </code></pre>-->
             <div class="article-content typo" v-html="article.htmlContent"></div>
-           <!-- <div v-html="html"></div>-->
+            <div v-html="html"></div>
             </div>
         </div>
 </div>
@@ -37,7 +37,6 @@
 
 <script>
     import prismjs from '@/assets/js/prism'
-
     export default {
         name: "ArticleDetail",
         data() {
@@ -76,6 +75,7 @@
                         }
                     //异步执行操作，待文章赋值后再渲染
                     setTimeout(()=>{
+                            // eslint-disable-next-line no-undef
                             prismjs.highlightAll()
                         }
                         ,0)

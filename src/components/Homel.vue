@@ -49,13 +49,13 @@ export default {
 }
 </script>
 
-<style>
+<style >
     /**{
         margin: 0px;
         padding: 0px;
     }*/
     .box{
-
+        display: flex;
     }
     .tool-wrap{
         width: 344px;
@@ -65,7 +65,6 @@ export default {
     .lef-col{
         background: #fff;
         width: 300px;
-        position: fixed;
         /*opacity: 1;*/
        /* transition: all .2s ease-in;*/
         height: 100%;
@@ -74,21 +73,20 @@ export default {
 
     .mid-col{
         padding: 20px;
-        position: absolute;
+        position: relative;
         min-height: 100%;
         background: #ECECEC;
         width: 920px;
-        left: 300px;
+        /*left: 300px;*/
     }
     .bread{
         margin: 30px;
-
     }
     .rig-col{
         position: relative;
         height: 100%;
         width: 300px;
-        left: 1220px;
+       /* left: 1220px;*/
     }
 
 

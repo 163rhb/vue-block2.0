@@ -1,11 +1,11 @@
 <template>
   <el-container class="home_container">
-    <el-header>
+   <!-- <el-header>
       <div class="home_title">博客管理后端</div>
       <div class="home_userinfoContainer">
         <el-dropdown @command="handleCommand">
   <span class="el-dropdown-link home_userinfo">
-    {{currentUserName}}<i class="el-icon-arrow-down el-icon--right home_userinfo"></i>
+    {{currentUserName}}<i class="el-icon-arrow-down el-icon&#45;&#45;right home_userinfo"></i>
   </span>
           <el-dropdown-menu slot="dropdown">
             <el-dropdown-item command="sysMsg">系统消息</el-dropdown-item>
@@ -15,14 +15,14 @@
           </el-dropdown-menu>
         </el-dropdown>
       </div>
-    </el-header>
+    </el-header>-->
     <el-container>
       <el-aside width="200px">
-        <el-menu
+        <!--<el-menu
                 default-active="2"
-                class="el-menu-vertical-demo"
-                @open="handleOpen"
-                @close="handleClose">
+                class="el-menu-vertical-demo">
+               &lt;!&ndash; @open="handleOpen"
+                @close="handleClose">&ndash;&gt;
           <el-submenu index="1">
             <template slot="title">
               <i class="el-icon-location"></i>
@@ -53,7 +53,7 @@
             <i class="el-icon-setting"></i>
             <span slot="title">导航四</span>
           </el-menu-item>
-        </el-menu>
+        </el-menu>-->
 
       </el-aside>
       <el-container>
@@ -63,9 +63,9 @@
             <el-breadcrumb-item v-text="this.$router.currentRoute.name"></el-breadcrumb-item>
           </el-breadcrumb>
           <keep-alive>
-            <router-view v-if="this.$route.meta.keepAlive"></router-view>
+           <!-- <router-view v-if="this.$route.meta.keepAlive"></router-view>-->
+            <router-view></router-view>
           </keep-alive>
-          <router-view v-if="!this.$route.meta.keepAlive"></router-view>
         </el-main>
       </el-container>
     </el-container>
@@ -75,7 +75,7 @@
 
   export default{
     methods: {
-      handleCommand(command){
+      /*handleCommand(command){
         var _this = this;
         if (command == 'logout') {
           this.$confirm('注销登录吗?', '提示', {
@@ -83,23 +83,23 @@
             cancelButtonText: '取消',
             type: 'warning'
           }).then(function () {
-            this.getRequst("/logout")
+            this.getRequest("/logout")
             _this.currentUserName = '游客';
             _this.$router.replace({path: '/'});
           }, function () {
             //取消
           })
         }
-      }
+      }*/
     },
     mounted(){
-
-      const _this = this;
-      this.getRequst("/currentUserName").then(function (msg) {
+      /*const _this = this;*/
+     /* this.getRequest("/currentUserName").then(function (msg) {
         _this.currentUserName = msg.data;
       }, function (msg) {
+        console.log(msg)
         _this.currentUserName = '游客';
-      });
+      });*/
     },
     data(){
       return {

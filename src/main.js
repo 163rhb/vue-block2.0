@@ -6,20 +6,24 @@ import ElimentUI from 'element-ui'
 import 'ant-design-vue/dist/antd.css';
 /*import Button from 'ant-design-vue/lib/button';*/
 import typo from '@/assets/css/typo.css'
+import prismjs from '@/assets/js/prism'
+import prismCss from '@/assets/css/prism.css'
 import store from "@/store";
 /*
 import Highlight from './utils/highlight'; // 这里是你项目highlight.js所在路径
 Vue.use(Highlight);
 */
-import {deleteRequst, getRequst, postKeyValueRequst, postRequst, putRequst} from "@/utils/api";
-Vue.prototype.getRequst=getRequst
-Vue.prototype.postRequst=postRequst
-Vue.prototype.putRequst=putRequst
-Vue.prototype.deleteRequst=deleteRequst
-Vue.prototype.postKeyValueRequst=postKeyValueRequst
+import {uploadFileRequest,deleteRequest, getRequest, postKeyValueRequest, postRequest, putRequest,isNotNullORBlank} from "@/utils/api";
+Vue.prototype.getRequest=getRequest
+Vue.prototype.postRequest=postRequest
+Vue.prototype.putRequest=putRequest
+Vue.prototype.deleteRequest=deleteRequest
+Vue.prototype.postKeyValueRequst=postKeyValueRequest
+Vue.prototype.isNotNullORBlank=isNotNullORBlank
+Vue.prototype.uploadFileRequest=uploadFileRequest
 /*Vue.use(Prism)*/
-/*Vue.use(prismjs)*/
-/*Vue.use(prismCss)*/
+Vue.use(prismjs)
+Vue.use(prismCss)
 Vue.config.productionTip = false
 Vue.use(typo)
 /*Vue.use(Button)*/
@@ -36,7 +40,10 @@ Vue.use(ElimentUI)
     }
   }
 })*/
-
+///默认顶部
+router.afterEach(() => {
+  window.scrollTo(0, 0)
+});
 
 
 

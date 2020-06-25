@@ -5,18 +5,18 @@ import Article from "@/components/views/Article";
 
 import ArticleDetail from "@/components/views/ArticleDetail";
 /*import ArticleByTag from "@/components/views/ArticleByTag";*/
-import AdminBack from "@/components/views/AdminBack";
+/*import AdminBack from "@/components/views/AdminBack";*/
 import ArticleList from "@/components/adminBack/ArticleList";
-
 import BlogDetail from "@/components/adminBack/BlogDetail";
-
-import PostArticle from "@/components/adminBack/PostArticle";
+import BlogEditor from "@/components/adminBack/BlogEditor";
+/*
 import UserMana from "@/components/adminBack/UserMana";
 import DataCharts from "@/components/adminBack/DataCharts";
 import CateMana from "@/components/adminBack/CateMana";
+import BlogEditor from "@/components/adminBack/BlogEditor";
+*/
 
 /*import Login from "@/components/Login";*/
-
 
 Vue.use(Router)
 export default new Router(
@@ -28,12 +28,7 @@ export default new Router(
                 name: '登录',
                 hidden: true,
                 component: Homel
-            },/*{
-            path:'/',
-            name:'home',
-            component:Homel,
-            hidden:true
-        },*/
+            },
 
             {
                 path: '/home',
@@ -66,22 +61,26 @@ export default new Router(
                 component:ArticleDetail
             },
             {
-                path: '/admin',
-                component: AdminBack,
-                name: '文章管理',
-                iconCls: 'fa fa-file-text-o',
-                children: [
+                path: '/editBlog',
+                name: '编辑博客',
+                component: BlogEditor,
+                hidden: true,
+                meta: {
+                    keepAlive: false
+                }
+            },
+            {
+                path: '/articleList',
+                name: '文章列表',
+                component: ArticleList,
+                meta: {
+                    keepAlive: true
+                }
+            },
                     {
-                        path: '/articleList',
-                        name: '文章列表',
-                        component: ArticleList,
-                        meta: {
-                            keepAlive: true
-                        }
-                    }, {
                         path: '/postArticle',
                         name: '发表文章',
-                        component: PostArticle,
+                        component: BlogEditor,
                         meta: {
                             keepAlive: false
                         }
@@ -94,17 +93,19 @@ export default new Router(
                             keepAlive: false
                         }
                     }, {
-                        path: '/editBlog',
+                        path: 'BlogEditor',
                         name: '编辑博客',
-                        component: PostArticle,
+                        component: BlogEditor,
                         hidden: true,
                         meta: {
                             keepAlive: false
                         }
-                    }
+                    },
+
+
                 ]
-            },
-            {
+
+           /* {
                 path: '/admin',
                 component:AdminBack,
                 name: '用户管理',
@@ -116,8 +117,8 @@ export default new Router(
                         component: UserMana
                     }
                 ]
-            },
-            {
+            },*/
+           /* {
                 path: '/admin',
                 component: AdminBack,
                 name: '栏目管理',
@@ -127,6 +128,12 @@ export default new Router(
                         iconCls: 'fa fa-reorder',
                         name: '栏目管理',
                         component: CateMana
+                    },
+                    {
+                        path: '/blogEditor',
+                        iconCls: 'fa fa-reorder',
+                        name: '编辑博客',
+                        component: BlogEditor
                     }
                 ]
             },
@@ -143,8 +150,8 @@ export default new Router(
                         component: DataCharts
                     }
                 ]
-            }
-            ]
+            }*/
+
     }
 )
 
