@@ -47,7 +47,6 @@
 
 <script>
     import store from "@/store";
-
     export default {
         name: "Tag",
         data(){
@@ -64,23 +63,22 @@
             initTags(){
                /* const user=JSON.parse(window.sessionStorage.getItem("user"))
                 const u_id=user.1*/
-               const u_id=7
-                this.getRequst("/home/getAllTagsByuId?uId="+u_id).then(resp=>{
+              /* const u_id=7
+                this.getRequest("/home/getAllTagsByuId?uId="+u_id).then(resp=>{
                     if(resp)
                     {
                         this.tags=resp
                     }
-                })
+                })*/
             },
             getArticlesByTag(tid,tagName)
             {
-               this.$router.push({path:"/home/getArticleByTag",query:{tid:tid,tagName:tagName}})
-                this.getRequst('/home/getArticleByTag?tId='+tid+'&pageId='+1).then(resp => {
+                this.getRequest('/home/getArticleByTag?tId='+tid+'&pageId='+1).then(resp => {
                     if (resp) {
                         store.commit("initArticles",resp)
                     }
                 })
-
+                this.$router.push({path:"/home/getArticleByTag",query:{tid:tid,tagName:tagName}})
             }
         }
     }

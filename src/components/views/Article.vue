@@ -72,9 +72,9 @@ import store from "@/store";
             }
         },
         mounted(){
-            if(this.$router.currentRoute.path!='/home')
+            console.log(this.$router.currentRoute.path)
+            if(this.$router.currentRoute.path!='/homel')
             {
-                console.log("tag")
                 this.initTagArticles()
             }
             else {
@@ -91,31 +91,27 @@ import store from "@/store";
                     this.initTagArticles()
                     console.log(from)
                     console.log(to.query.tid)
-
-
             }
         },
         methods: {
             initAllArticles() {
-                this.getRequst('/home/getallarticles?pageId='+this.currentPage).then(resp => {
+                this.getRequest('/homel/getallarticles?pageId='+this.currentPage).then(resp => {
                     if (resp) {
-                        console.log(resp)
                         store.commit("initArticles",resp)
                     }
                 })
             },
             initTagArticles(){
                 let tid=this.$route.query.tid
-                this.getRequst('/home/getArticleByTag?tId='+tid+'&pageId='+this.currentPage).then(resp => {
+                this.getRequest('/homel/getArticleByTag?tId='+tid+'&pageId='+this.currentPage).then(resp => {
                     if (resp) {
-                        console.log("更新没")
                         store.commit("initArticles",resp)
                     }
                 })
             },
             handleCurrentChange(currentPage) {
                 this.currentPage = currentPage
-                    this.getRequst('/home/getallarticles?pageId=' + this.currentPage).then(resp => {
+                    this.getRequest('/homel/getallarticles?pageId=' + this.currentPage).then(resp => {
                         if (resp) {
                             store.commit("initArticles", resp)
                            /* this.articles=resp*/
@@ -129,7 +125,7 @@ import store from "@/store";
     }
 </script>
 
-<style scoped>
+<style >
     /*.main-box{
 
 

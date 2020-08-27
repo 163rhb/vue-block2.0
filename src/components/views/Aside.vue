@@ -2,7 +2,6 @@
     <div class="aside-box">
         <div class="aside-overlay">
             <!--<div><el-avatar class="avatar" :size="200"  :src="circleUrl">
-
             </el-avatar></div>-->
             <div class="aside-touxiang">
                 <a src="#" class="link">
@@ -12,13 +11,10 @@
         </div>
         <div class="text">
             <div class="name">
-
                     <h1 class="daming">
                         <a src="#" >波神小波</a>
                     </h1>
-
             </div>
-
             <div class="qianming">座右铭</div>
             <div class="weixin">微信号</div>
             <div class="weixin">qq号</div>

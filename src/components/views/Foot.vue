@@ -22,7 +22,6 @@
         name: "Foot"
     }
 </script>
-
 <style scoped>
 
 </style>

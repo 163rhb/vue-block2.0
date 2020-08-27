@@ -69,14 +69,13 @@
             articles(){
                 return store.state.articles
             }
-
         },
         mounted(){
             this.initAll()
         },
         methods: {
             initAll() {/*防止在此页面刷新,vuex刷新后会丢失数据，所以需要重新加载*/
-                this.getRequst('/home/getArticleByTag?tid='+this.$route.query.tid+'&pageId='+this.currentPage).then(resp => {
+                this.getRequest('/home/getArticleByTag?tid='+this.$route.query.tid+'&pageId='+this.currentPage).then(resp => {
                     if (resp) {
                         store.commit("initArticles",resp)
                     }
@@ -84,7 +83,7 @@
             },
             handleCurrentChange(currentPage) {
                 this.currentPage = currentPage
-                this.getRequst('/home/getArticleByTag?tid='+this.$route.query.tid+'&pageId='+this.currentPage).then(resp => {
+                this.getRequest('/home/getArticleByTag?tid='+this.$route.query.tid+'&pageId='+this.currentPage).then(resp => {
                     if (resp) {
                         store.commit("initArticles", resp)
                     }

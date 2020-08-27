@@ -7,7 +7,26 @@
                         {{article.title}}
                         </span>     <!--h1嵌套span标签要有里面设置class样式才有用-->
                     </h1>
+
             </div>
+
+        <div style="width: 100%;display: flex;justify-content:center;align-items: center;margin-bottom: 40px">
+            <el-tag color="#FF0033" size="small" style="margin-right: 8px">
+                <span style="color: white ;">{{article.nickname}}</span>
+            </el-tag>
+            <el-tag  color="chocolate" size="small" style="margin-right: 8px">
+                <i class="el-icon-view" style="color:white" ></i>
+                <span style="color: white ;margin-left: 10px">浏览 {{article.pageView==null?0:article.pageView }}</span>
+            </el-tag>
+            <el-tag color=" #99CC33" size="small" style="margin-right: 8px">
+                <span style="color: white;"> <i class="el-icon-date" style="margin-right: 8px"></i>{{article.editTime }}</span>
+            </el-tag>
+            <el-tag color="#66CCCC" v-for="(item,index) in article.tags" :key="index" size="small"
+                    style="margin-right: 8px">
+                <span style="color: white">{{item.tagName}}</span>
+            </el-tag>
+
+    </div>
         <div>
            <!-- <pre class="line-numbers">
                 <code class="language-java">
@@ -26,7 +45,7 @@
                 }
             </code></pre>-->
             <div class="article-content typo" v-html="article.htmlContent"></div>
-            <div v-html="html"></div>
+            <!--<div v-html="html"></div>-->
             </div>
         </div>
 </div>
@@ -65,7 +84,9 @@
         },
         methods: {
             initArticle() {
-                this.getRequst("/article/getArticleDetailById?id=" + this.$route.query.aid).then(resp => {
+                console.log(this.$route.query.aid)
+                let aid=this.$route.query.aid
+                this.getRequest("/article/" + aid).then(resp => {
                         if (resp) {
                             console.log(resp.htmlContent)
                             let htmContent2=this.replaceHtml(resp.htmlContent)
